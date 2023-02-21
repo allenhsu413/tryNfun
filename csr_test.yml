@@ -1,0 +1,47 @@
+- name: csr_test
+  hosts: ne_list
+  gather_facts: false
+  connection: netconf
+    
+  vars:
+    ansible_ssh_user: "{{ username }}"
+    ansible_ssh_pass: "{{ password }}"
+    ansible_network_os: 'junos'
+
+  tasks:
+    - name: get module
+      junipernetworks.junos.junos_facts:
+      register: jnpr_facts
+
+    - name: print
+      debug:
+        var: jnpr_facts
+
+    # - name: show-arp
+    #   junipernetworks.junos.junos_command:
+    #     commands: show arp
+    #     display: json
+    #   register: result
+
+    # - name: build ping targets
+    #   with_items: "{{ result.stdout[0]['arp-table-information'][0]['arp-table-entry'] }}"
+    #   set_fact:
+    #     ping_targets: "{{ ping_targets|default([]) + [ item['ip-address'][0]['data']] }}"
+
+    # - set_fact:
+    #     ping_targets: "{{ ping_targets|default([]) + ['192.168.110.199'] }}"
+
+    # - name: print register
+    #   debug:
+    #     var: ping_targets
+
+    # - name: ping-host
+    #   with_items: "{{ ping_targets }}"
+    #   junipernetworks.junos.junos_command:
+    #     commands: ping "{{ item }}" rapid count 3
+    #   register: ping_result
+    #   failed_when: "'...' in ping_result.stdout[0]"
+
+    # - name: print
+    #   debug:
+    #     var: ping_result
