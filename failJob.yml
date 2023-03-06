@@ -1,0 +1,14 @@
+- name: next job
+  hosts: ne_list
+  gather_facts: false
+  connection: netconf
+    
+  vars:
+    ansible_ssh_user: "{{ username }}"
+    ansible_ssh_pass: "{{ password }}"
+    ansible_network_os: 'junos'
+
+  tasks:
+    - name: print
+      debug:
+        msg: "Fail precheck"

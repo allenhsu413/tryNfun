@@ -1,0 +1,19 @@
+---
+- name: show disk usage
+  junipernetworks.junos.junos_command:
+    commands: show system storage
+  register: raw_sys_df
+
+- name: fetch disk usage
+  set_fact:
+    avail: "{% for line in raw_sys_df.stdout_lines[0] if this_disk_part in line %}{{ line | split }}{% endfor %}"
+
+# - name: print
+#   debug:
+#     var: avail
+
+- name: Check disk usage(<50)
+  fail:
+    msg: "disk check fail"
+  when: avail[-2][:-1] | int > 50
+...

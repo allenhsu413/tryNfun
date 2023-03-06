@@ -1,0 +1,5 @@
+---
+- name: STEP Disk usage check < 50%
+  import_tasks: "disk50.yml"
+
+...

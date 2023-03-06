@@ -1,0 +1,19 @@
+---
+- name: get facts
+  junipernetworks.junos.junos_facts:
+  register: jnpr_facts
+
+- name: tag facts
+  set_fact:
+    this_module: "{{ (jnpr_facts.ansible_facts['ansible_net_model'] | split('-'))[0] }}"
+    this_version: "{{ jnpr_facts.ansible_facts['ansible_net_version'] }}"
+
+- name: tag disk part
+  set_fact:    
+    this_disk_part: "{% if this_module == 'ex4300' %}{{ lookup('vars','deviceVar')['ex4300']['disk_part'] }}\
+    {% elif this_module == 'acx710' %}{{ lookup('vars','deviceVar')['acx710']['disk_part'] }}\
+    {% elif this_module == 'mx104' %}{{ lookup('vars','deviceVar')['mx104']['disk_part'] }}\
+    {% elif this_module == 'acx2100' %}{{ lookup('vars','deviceVar')['acx2100']['disk_part'] }}\
+    {% elif this_module == 'acx2200' %}{{ lookup('vars','deviceVar')['acx2200']['disk_part'] }}\
+    {% endif %}"
+    

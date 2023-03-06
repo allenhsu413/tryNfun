@@ -1,0 +1,24 @@
+--
+- name: Check file MD5 - acx710
+  junipernetworks.junos.junos_command:
+    commands: "file checksum md5 /var/tmp/{{ deviceVar.acx710.img_path }}"
+    format: json
+  register: file_md5
+  when: this_module == 'acx710'
+  failed_when: file_md5.stdout[0]['checksum-information'][0]['file-checksum'][0]['checksum'][0]['data'] != deviceVar.acx710.md5_value
+
+- name: Check file MD5 - acx2100
+  junipernetworks.junos.junos_command:
+    commands: "file checksum md5 /var/tmp/{{ deviceVar.acx2100.img_path }}"
+    format: json
+  register: file_md5
+  when: this_module == 'acx2100'
+  failed_when: file_md5.stdout[0]['checksum-information'][0]['file-checksum'][0]['checksum'][0]['data'] != deviceVar.acx2100.md5_value
+
+- name: Check file MD5 - acx2200
+  junipernetworks.junos.junos_command:
+    commands: "file checksum md5 /var/tmp/{{ deviceVar.acx2200.img_path }}"
+    format: json
+  register: file_md5
+  when: this_module == 'acx2200'
+  failed_when: file_md5.stdout[0]['checksum-information'][0]['file-checksum'][0]['checksum'][0]['data'] != deviceVar.acx2200.md5_value
