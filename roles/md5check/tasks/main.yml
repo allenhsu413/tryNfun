@@ -1,4 +1,4 @@
---
+---
 - name: Check file MD5 - acx710
   junipernetworks.junos.junos_command:
     commands: "file checksum md5 /var/tmp/{{ deviceVar.acx710.img_path }}"
