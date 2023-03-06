@@ -1,0 +1,9 @@
+---
+- name: check ring
+  junipernetworks.junos.junos_command:
+    commands: show isis backup coverage
+    display: json
+  register: output
+  failed_when: output.stdout[0]['isis-backup-coverage-information'][0]['isis-backup-coverage'][0]['isis-route-coverage-ipv4'][0]['data'] != '100.00%'
+
+...
