@@ -8,6 +8,9 @@
     ansible_ssh_pass: "{{ password }}"
     ansible_network_os: 'junos'
 
+  vars_files:
+    - ./vars/neBaseInfo.yml
+    
   roles:
     - { role: "getFacts" }
     - { role: "md5check" }

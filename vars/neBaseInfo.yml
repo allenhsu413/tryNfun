@@ -1,0 +1,49 @@
+---
+deviceVar:
+  acx710:
+    disk_part: "/dev/gpt/junos"
+    ftp_url: "ftp://192.168.110.116/"
+    # ftp_url: "ftp://jceimg:jceimg@10.177.0.22/JCE_IMG/"
+    img_path: "junos-install-acx-arm-64-21.2R3-S4.8.tgz"
+    img_size: "433567013"
+    md5_value: "9df6075978bf356812b99885bb7bf708"
+    orig_version: ""
+    new_version: "21.2R3-S4.8"
+    trunk_port: ['xe-0/0/22', 'xe-0/0/23']
+
+  acx2100:
+    disk_part: "/dev/da0s3f"
+    ftp_url: "ftp://192.168.110.116/"
+    # ftp_url: "ftp://jceimg:jceimg@10.177.0.22/JCE_IMG/"
+    img_path: "jinstall-ppc-21.2R3-S4.8-signed.tgz"
+    img_size: "401790190"
+    md5_value: "06b8598b71f5186420b496120da85ab3"
+    orig_version: ""
+    new_version: "21.2R3-S4.8"
+    trunk_port: ['xe-1/3/0', 'xe-1/3/1']
+
+  acx2200:
+    disk_part: "/dev/da0s3f"
+    ftp_url: "ftp://192.168.110.116/"
+    # ftp_url: "ftp://jceimg:jceimg@10.177.0.22/JCE_IMG/"
+    img_path: "jinstall-ppc-21.2R3-S4.8-signed.tgz"
+    img_size: "401790190"
+    md5_value: "06b8598b71f5186420b496120da85ab3"
+    orig_version: ""
+    new_version: "21.2R3-S4.8"
+    trunk_port: ['xe-0/3/0', 'xe-0/3/1']
+  
+  mx104:
+    # disk_part: "/dev/da0s3f"
+    disk_part: "/dev/da0s1f"
+    ftp_url: "ftp://192.168.110.116/"
+    # ftp_url: "ftp://jceimg:jceimg@10.177.0.22/JCE_IMG/"
+    img_path_a: "jinstall-ppc-19.4R3.11-signed.tgz"
+    img_size_a: "403906746"
+    md5_value_a: "7129ee5f9724c19f9d953530aaa45c01"
+    img_path_b: "jinstall-ppc-21.2R3-S4.8-signed.tgz"
+    img_size_b: "401790190"
+    md5_value_b: "06b8598b71f5186420b496120da85ab3"
+    orig_version: ""
+    new_version: "21.2R3-S4.8"
+    trunk_port: ['xe-2/0/0', 'xe-2/0/1']

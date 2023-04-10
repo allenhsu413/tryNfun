@@ -1,0 +1,5 @@
+---
+- name: Check version
+  fail:
+    msg: "JUNOS version check fail"
+  when: this_version != check_version
